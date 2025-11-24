@@ -91,7 +91,7 @@ Questa sezione include i comandi per la visualizzazione, la gestione e la manipo
 ---
 
 ## IV. Reindirizzamenti e Gruppi di Comandi
-
+ 
 Questa sezione copre gli operatori di I/O (Input/Output) e i metodi per raggruppare i comandi. I descrittori di file standard sono: `0` (stdin), `1` (stdout), `2` (stderr).
 
 | Sintassi                 | Tipo           | Descrizione                                                                                                                                                                                                           | Riferimenti |
