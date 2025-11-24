@@ -1,6 +1,6 @@
 #Appunti #Esami #OS 
 
-***Nota bene***: i riferimenti riguardano il numero in basso a destra nelle slide del file **4_InterfacciaUtenteACaratteri_BashScripting.pdf**; riferimenti differenti sono specificati direttamente nelle tabelle.
+***Nota bene***: i riferimenti riguardano il numero in basso a destra nelle slide del file **4_InterfacciaUtenteACaratteri_BashScripting.pdf**; riferimenti differenti sono specificati direttamente nelle tabelle
 
 ---
 
