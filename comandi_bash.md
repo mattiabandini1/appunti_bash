@@ -95,23 +95,23 @@ Questa sezione include i comandi per la visualizzazione, la gestione e la manipo
  
 Questa sezione copre gli operatori di I/O (Input/Output) e i metodi per raggruppare i comandi. I descrittori di file standard sono: `0` (stdin), `1` (stdout), `2` (stderr).
 
-| Sintassi | Tipo | Descrizione | Riferimenti |
-| :--- | :--- | :--- | :--- |
-| `<cmd> > <file>` | Output | **Reindirizza lo standard output** (`fd 1`) su un file, **sovrascrivendolo**. | 150, 151 |
-| `<cmd> >> <file>` | Output | Reindirizza lo standard output (`fd 1`) su un file, **aggiungendolo in coda**. | 150, 151 |
-| `<cmd> < <file>` | Input | **Reindirizza lo standard input** (`fd 0`) prendendolo dal file. | 150 |
-| `<cmd> 2> <file>` | Error | Reindirizza lo standard error (`fd 2`) sul file. | 153 |
-| `<cmd> &> <file>` | All Output | Reindirizza **stdout e stderr** sullo stesso file. | 154 |
-| `<cmd> N>&M` | FD Mapping | Reindirizza il **file descriptor N** per puntare allo stesso target del file descriptor M. (Esempio: `ls 2>&1 > file.txt` reindirizza stderr (`2`) verso stdout (`1`), che a sua volta è reindirizzato verso `file.txt`). | 158 |
-| `\|` | Pipe | Collega lo standard output di `cmd1` allo standard input di `cmd2` (i processi eseguono in contemporanea in subshell). | 156 |
-| `\|&` | Pipe All | Collega **stdout e stderr** di `cmd1` allo standard input di `cmd2` (scorciatoia per `2>&1 \|`). | 166 |
-| `exec {FD}< <file>` | Apertura FD | **Apre un file** e assegna il **file descriptor** libero ad una variabile (`FD`). | 145 |
-| `exec {FD}>&-` | Chiusura FD | **Chiude** lo stream associato al file descriptor nella variabile `FD`. | 148 |
-| `OUT=\`<cmd>\`` | Command Sub | Sostituisce il comando con l'output prodotto su stdout (sintassi **backticks**). | 112 |
-| `OUT=$(<cmd>)` | Command Sub | Sostituisce il comando con l'output prodotto su stdout (sintassi **tonde**). | 112 |
-| `( <lista> )` | Raggruppamento | Esegue la lista di comandi in una **subshell** (copia dell'ambiente). | 101 |
-| `{ <lista> ; }` | Raggruppamento | Esegue la lista di comandi nella **shell corrente** (richiede `;` prima di `}`). | 101 |
-| `<cmd> << FINE ... FINE` | Here Doc | **Here Document**: ridirige l'input multi-linea specificato tra due delimitatori (`FINE`) allo standard input del comando. | 172, 173 |
+| Sintassi                 | Tipo           | Descrizione                                                                                                                                                                                                               | Riferimenti |
+| :----------------------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------- |
+| `<cmd> > <file>`         | Output         | **Reindirizza lo standard output** (`fd 1`) su un file, **sovrascrivendolo**.                                                                                                                                             | 150, 151    |
+| `<cmd> >> <file>`        | Output         | Reindirizza lo standard output (`fd 1`) su un file, **aggiungendolo in coda**.                                                                                                                                            | 150, 151    |
+| `<cmd> < <file>`         | Input          | **Reindirizza lo standard input** (`fd 0`) prendendolo dal file.                                                                                                                                                          | 150         |
+| `<cmd> 2> <file>`        | Error          | Reindirizza lo standard error (`fd 2`) sul file.                                                                                                                                                                          | 153         |
+| `<cmd> &> <file>`        | All Output     | Reindirizza **stdout e stderr** sullo stesso file.                                                                                                                                                                        | 154         |
+| `<cmd> N>&M`             | FD Mapping     | Reindirizza il **file descriptor N** per puntare allo stesso target del file descriptor M. (Esempio: `ls 2>&1 > file.txt` reindirizza stderr (`2`) verso stdout (`1`), che a sua volta è reindirizzato verso `file.txt`). | 158         |
+| \|                       | Pipe           | Collega lo standard output di `cmd1` allo standard input di `cmd2` (i processi eseguono in contemporanea in subshell).                                                                                                    | 156         |
+| \|&                      | Pipe All       | Collega **stdout e stderr** di `cmd1` allo standard input di `cmd2` (scorciatoia per `2>&1 \|`).                                                                                                                          | 166         |
+| `exec {FD}< <file>`      | Apertura FD    | **Apre un file** e assegna il **file descriptor** libero ad una variabile (`FD`).                                                                                                                                         | 145         |
+| `exec {FD}>&-`           | Chiusura FD    | **Chiude** lo stream associato al file descriptor nella variabile `FD`.                                                                                                                                                   | 148         |
+| `OUT=\`<cmd>\``          | Command Sub    | Sostituisce il comando con l'output prodotto su stdout (sintassi **backticks**).                                                                                                                                          | 112         |
+| `OUT=$(<cmd>)`           | Command Sub    | Sostituisce il comando con l'output prodotto su stdout (sintassi **tonde**).                                                                                                                                              | 112         |
+| `( <lista> )`            | Raggruppamento | Esegue la lista di comandi in una **subshell** (copia dell'ambiente).                                                                                                                                                     | 101         |
+| `{ <lista> ; }`          | Raggruppamento | Esegue la lista di comandi nella **shell corrente** (richiede `;` prima di `}`).                                                                                                                                          | 101         |
+| `<cmd> << FINE ... FINE` | Here Doc       | **Here Document**: ridirige l'input multi-linea specificato tra due delimitatori (`FINE`) allo standard input del comando.                                                                                                | 172, 173    |
 
 ---
 
