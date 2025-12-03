@@ -45,6 +45,7 @@ Questa sezione contiene i comandi fondamentali per la navigazione nel filesystem
 | **Permessi**           | `chown <nuovoproprietario> <file>` | Cambia il **proprietario** di un file.                                                                                                                                                      | 45,46             |
 | **Permessi**           | `chgrp <nuovogruppo> <file>`       | Cambia il **gruppo** di un file.                                                                                                                                                            | 45                |
 | **Permessi**           | `chmod <modo> <file>`              | Cambia i **permessi** di un file.                                                                                                                                                           | 43                |
+
 ### Comandi utili durante l'utilizzo di `man <comando>`
 
 | **Testo** | **Azione**                        | **Note**                                                    |
