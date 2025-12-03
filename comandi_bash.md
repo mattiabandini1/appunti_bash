@@ -45,6 +45,18 @@ Questa sezione contiene i comandi fondamentali per la navigazione nel filesystem
 | **Permessi**           | `chown <nuovoproprietario> <file>` | Cambia il **proprietario** di un file.                                                                                                                                                      | 45,46             |
 | **Permessi**           | `chgrp <nuovogruppo> <file>`       | Cambia il **gruppo** di un file.                                                                                                                                                            | 45                |
 | **Permessi**           | `chmod <modo> <file>`              | Cambia i **permessi** di un file.                                                                                                                                                           | 43                |
+### Comandi utili durante l'utilizzo di `man <comando>`
+
+| **Testo** | **Azione**                        | **Note**                                                    |
+| :-------- | :-------------------------------- | :---------------------------------------------------------- |
+| `/testo`  | Cerca **in avanti**               | Premi invio per confermare                                  |
+| `n`       | Vai alla **prossima occorrenza**  | Salta subito alla parte evidenziata successiva              |
+| `N`       | Vai all'**occorrenza precedente** | Salta subito alla parte evidenziata precedente              |
+| `?testo`  | Cerca **all'indietro**            | Utile se si è alla fine del file per cercare qualcosa sopra |
+| `g`       | Vai **all'inizio**                | Torna alla prima riga del manuale (Top)                     |
+| `G`       | Vai **alla fine**                 | Vai subito all'ultima riga del manuale (Bottom)             |
+| `q`       | **Esci**                          | Chiude il manuale                                           |
+
 
 ---
 
