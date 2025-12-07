@@ -14,39 +14,42 @@ title: Guida Rapida Comandi Bash
 
 Questa sezione contiene i comandi fondamentali per la navigazione nel filesystem, la gestione di file, directory e l'ottenimento di informazioni sul sistema.
 
-| Categoria              | Comando                                | Descrizione                                                                                                                                                                                 | Riferimenti       |
-| :--------------------- | :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------- |
-| **Navigazione e File** | `pwd`                                  | Visualizza il **percorso completo** della directory di lavoro corrente (directory corrente).                                                                                                | 33                |
-| **Navigazione e File** | `cd <percorso>`                        | **Cambia la directory** di lavoro corrente. Può usare percorsi assoluti (`/home/user`) o relativi (`../`).                                                                                  | 34                |
-| **Navigazione e File** | `ls -alh <percorso>`                   | **Elenca informazioni sui file** nella directory specificata (opzioni: `-a` tutti i file, `-l` formato lungo, `-h` dimensione leggibile dall'uomo).                                         | 48                |
-| **Navigazione e File** | `ls -d <percorso>`                     | Possiamo aggiungere il flag `-d` al comando `ls` per **vedere solo le directory e non i file**                                                                                              | comando `man ls`  |
-| **Navigazione e File** | `ls -R <percorso>`                     | Il flag `-R` permette di **visualizzare tutti i file nella directory specificata e nelle sue sottodirectory**                                                                               | comando `man ls`  |
-| **Navigazione e File** | `mkdir <percorso_dir>`                 | **Crea una nuova directory** nel percorso specificato.                                                                                                                                      | 82                |
-| **Navigazione e File** | `rmdir <percorso_dir>`                 | **Elimina la directory** specificata, solo se è vuota.                                                                                                                                      | 82                |
-| **Navigazione e File** | `rm <percorso_file>`                   | **Elimina il file** specificato.                                                                                                                                                            | 82                |
-| **Navigazione e File** | `rm -rf <dir>`                         | Possiamo aggiungere il flag `-rf` al comando `rm` per **eliminare (con un unico comando) la directory in questione e tutti i file in essa contenuti**                                       | comando `man rm`  |
-| **Navigazione e File** | `mv <src> <dest>`                      | **Sposta o rinomina** il file specificato.                                                                                                                                                  | 82                |
-| **Navigazione e File** | `touch <percorso_file>`                | **Crea il file** specificato se non esiste, o ne aggiorna la data.                                                                                                                          | 82                |
-| **Contenuto File**     | `cat <percorso_file>`                  | Visualizza in output il **contenuto completo** del file specificato.                                                                                                                        | 82                |
-| **Contenuto File**     | `more <file>` / `less <file>`          | Mostra il file specificato **un poco alla volta** (paginazione).                                                                                                                            | 82                |
-| **Contenuto File**     | `head <file>`                          | Mostra le **prime 10 linee** del file specificato.                                                                                                                                          | 82                |
-| **Contenuto File**     | `tail <file>`                          | Mostra le **ultime 10 linee** del file specificato.                                                                                                                                         | 82                |
-| **Contenuto File**     | `cut -b <listaByte> <file>`            | Serve per **estrarre determinati byte** da una file (si può usare anche per caratteri, a patto che questi pesino solo un byte (caratteri normai))                                           | comando `man cut` |
-| **Contenuti File**     | `cut -c <intervallo_caratteri> <file>` | Serve per **estrarre determinati caratteri** da un determinato file (da usare per riuscire a intercettare anche caratteri che pesano più di un byte (es. caratteri accentati))              | comando `man cut` |
-| **Info/Utility**       | `man <comando>`                        | **Manuale**: fornisce informazioni sul comando specificato.                                                                                                                                 | 82                |
-| **Info/Utility**       | `which <eseguibile>`                   | Visualizza il **percorso** dell'eseguibile (solo se si trova nella variabile `PATH`).                                                                                                       | 82                |
-| **Info/Utility**       | `strace <comando>`                     | Esegue un comando e visualizza le **system call** che sono chiamate dal processo.                                                                                                           | 10                |
-| **Info/Utility**       | `echo <caratteri>`                     | Visualizza in output la sequenza di caratteri specificata.                                                                                                                                  | 38                |
-| **Info/Utility**       | `grep <pattern> <file>`                | **Cerca** tra le righe di un file (o da stdin) quelle che contengono il pattern.                                                                                                            | 82                |
-| **Info/Utility**       | `find <dir> <opzioni>`                 | Cerca dei file in una directory e nelle sue sottodirectory.                                                                                                                                 | 82                |
-| **Info/Utility**       | `wc`                                   | **Conta** il numero di parole, caratteri o linee di un file.                                                                                                                                | 82                |
-| **Comportamento Bash** | `set`                                  | **Modifica il comportamento della shell** oppure **imposta parametri posizionali**                                                                                                          |                   |
-| **Comportamento Bash** | `set -x`                               | **Strumento di debug principale** per gli script. Prima di eseguire una riga, **la stampa a video con i valori delle variabili espansi**. Va inserita all'inizio dello script in questione. | comando `man set` |
-| **Comportamento Bash** | `set -a`                               | **Abilita la creazione di variabili d'ambiente** (flag `+a` per disabilitarla)                                                                                                              | comando `man set` |
-| **Comportamento Bash** | `set +o history`                       | **Disabilita la memorizzazione di** `history` (flag `-o` per abilitarla)                                                                                                                    | comando `man set` |
-| **Permessi**           | `chown <nuovoproprietario> <file>`     | Cambia il **proprietario** di un file.                                                                                                                                                      | 45,46             |
-| **Permessi**           | `chgrp <nuovogruppo> <file>`           | Cambia il **gruppo** di un file.                                                                                                                                                            | 45                |
-| **Permessi**           | `chmod <modo> <file>`                  | Cambia i **permessi** di un file.                                                                                                                                                           | 43                |
+| Categoria              | Comando                                | Descrizione                                                                                                                                                                                 | Riferimenti         |
+| :--------------------- | :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------ |
+| **Navigazione e File** | `pwd`                                  | Visualizza il **percorso completo** della directory di lavoro corrente (directory corrente).                                                                                                | 33                  |
+| **Navigazione e File** | `cd <percorso>`                        | **Cambia la directory** di lavoro corrente. Può usare percorsi assoluti (`/home/user`) o relativi (`../`).                                                                                  | 34                  |
+| **Navigazione e File** | `ls -alh <percorso>`                   | **Elenca informazioni sui file** nella directory specificata (opzioni: `-a` tutti i file, `-l` formato lungo, `-h` dimensione leggibile dall'uomo).                                         | 48                  |
+| **Navigazione e File** | `ls -d <percorso>`                     | Possiamo aggiungere il flag `-d` al comando `ls` per **vedere solo le directory e non i file**                                                                                              | comando `man ls`    |
+| **Navigazione e File** | `ls -R <percorso>`                     | Il flag `-R` permette di **visualizzare tutti i file nella directory specificata e nelle sue sottodirectory**                                                                               | comando `man ls`    |
+| **Navigazione e File** | `mkdir <percorso_dir>`                 | **Crea una nuova directory** nel percorso specificato.                                                                                                                                      | 82                  |
+| **Navigazione e File** | `rmdir <percorso_dir>`                 | **Elimina la directory** specificata, solo se è vuota.                                                                                                                                      | 82                  |
+| **Navigazione e File** | `rm <percorso_file>`                   | **Elimina il file** specificato.                                                                                                                                                            | 82                  |
+| **Navigazione e File** | `rm -rf <dir>`                         | Possiamo aggiungere il flag `-rf` al comando `rm` per **eliminare (con un unico comando) la directory in questione e tutti i file in essa contenuti**                                       | comando `man rm`    |
+| **Navigazione e File** | `mv <src> <dest>`                      | **Sposta o rinomina** il file specificato.                                                                                                                                                  | 82                  |
+| **Navigazione e File** | `touch <percorso_file>`                | **Crea il file** specificato se non esiste, o ne aggiorna la data.                                                                                                                          | 82                  |
+| **Contenuto File**     | `cat <percorso_file>`                  | Visualizza in output il **contenuto completo** del file specificato.                                                                                                                        | 82                  |
+| **Contenuto File**     | `more <file>` / `less <file>`          | Mostra il file specificato **un poco alla volta** (paginazione).                                                                                                                            | 82                  |
+| **Contenuto File**     | `head <file>`                          | Mostra le **prime 10 linee** del file specificato.                                                                                                                                          | 82                  |
+| **Contenuto File**     | `tail <file>`                          | Mostra le **ultime 10 linee** del file specificato.                                                                                                                                         | 82                  |
+| **Contenuto File**     | `cut -b <listaByte> <file>`            | Serve per **estrarre determinati byte** da una file (si può usare anche per caratteri, a patto che questi pesino solo un byte (caratteri normai))                                           | comando `man cut`   |
+| **Contenuti File**     | `cut -c <intervallo_caratteri> <file>` | Serve per **estrarre determinati caratteri** da un determinato file (da usare per riuscire a intercettare anche caratteri che pesano più di un byte (es. caratteri accentati))              | comando `man cut`   |
+| **Info/Utility**       | `man <comando>`                        | **Manuale**: fornisce informazioni sul comando specificato.                                                                                                                                 | 82                  |
+| **Info/Utility**       | `which <eseguibile>`                   | Visualizza il **percorso** dell'eseguibile (solo se si trova nella variabile `PATH`).                                                                                                       | 82                  |
+| **Info/Utility**       | `strace <comando>`                     | Esegue un comando e visualizza le **system call** che sono chiamate dal processo.                                                                                                           | 10                  |
+| **Info/Utility**       | `echo <caratteri>`                     | Visualizza in output la sequenza di caratteri specificata.                                                                                                                                  | 38                  |
+| **Info/Utility**       | `grep <pattern> <file>`                | **Cerca** tra le righe di un file (o da stdin) quelle che contengono il pattern.                                                                                                            | 82                  |
+| **Info/Utility**       | `find <dir> <opzioni>`                 | Cerca dei file in una directory e nelle sue sottodirectory.                                                                                                                                 | 82                  |
+| **Info/Utility**       | `wc`                                   | **Conta** il numero di parole, caratteri o linee di un file.                                                                                                                                | 82                  |
+| **Comportamento Bash** | `set`                                  | **Modifica il comportamento della shell** oppure **imposta parametri posizionali**                                                                                                          |                     |
+| **Comportamento Bash** | `set -x`                               | **Strumento di debug principale** per gli script. Prima di eseguire una riga, **la stampa a video con i valori delle variabili espansi**. Va inserita all'inizio dello script in questione. | comando `man set`   |
+| **Comportamento Bash** | `set -a`                               | **Abilita la creazione di variabili d'ambiente** (flag `+a` per disabilitarla)                                                                                                              | comando `man set`   |
+| **Comportamento Bash** | `set +o history`                       | **Disabilita la memorizzazione di** `history` (flag `-o` per abilitarla)                                                                                                                    | comando `man set`   |
+| **Permessi**           | `chown <nuovoproprietario> <file>`     | Cambia il **proprietario** di un file.                                                                                                                                                      | 45,46               |
+| **Permessi**           | `chgrp <nuovogruppo> <file>`           | Cambia il **gruppo** di un file.                                                                                                                                                            | 45                  |
+| **Permessi**           | `chmod <modo> <file>`                  | Cambia i **permessi** di un file.                                                                                                                                                           | 43                  |
+| **Permessi**           | `chmod u+x <file>`                     | Aggiunge il **permesso di esecuzione** all'utente                                                                                                                                           | comando `man chmod` |
+| **Permessi**           | `chmod g-w <file>`                     | Toglie il **permesso di scrittura** al gruppo                                                                                                                                               | comando `man chmod` |
+| **Permessi**           | `chmod o=r <file>`                     | Imposta per *others* **solo il permesso di lettura**                                                                                                                                        | comando `man chmod` |
 
 ### Comandi utili durante l'utilizzo di `man <comando>`
 
@@ -465,5 +468,107 @@ sudo apt update
 
 echo "Repository aggiunto e verifica GPG configurata."
 # Ora è possibile installare il pacchetto: sudo apt install myapp
+```
+
+---
+## X. Script ripresi da esercizi
+
+***1. Script: leggeretutto.sh*** *Usa `exec` per assegnare un File Descriptor (FD) libero e legge fino all'ultima riga, anche se questa non termina con un accapo (`newline`).*
+
+```bash
+#!/bin/bash
+# Apre il file associandolo a un File Descriptor libero {FD}
+exec {FD}< ./miofileNoNL.txt
+
+# Verifica se l'apertura è andata a buon fine
+if (( $? == 0 )) ; then
+    # Legge dal file descriptor specifico (-u ${FD})
+    # La condizione nel while gestisce anche l'ultima riga senza newline
+    while read -u ${FD} RIGA ; [[ $? == 0 || ${RIGA} != "" ]] ; do
+        echo "${RIGA}"
+    done
+    # Chiude il file descriptor
+    exec {FD}>&-
+fi
+```
+
+***2. Due script sul fattoriale:*** *script chiamante $\to$ chiama_fattoriale.sh, script chiamato $\to$ fattoriale.sh
+
+```bash
+#!/bin/bash
+# Cattura l'output dello script chiamato nella variabile RISULTATO
+# Si può usare ` ` (backticks) oppure $( )
+RISULTATO=`./fattoriale.sh 5`
+echo "${RISULTATO}"
+```
+
+```bash
+#!/bin/bash
+NUM=1
+PRODOTTO=1
+# Calcola il fattoriale iterando fino al valore passato come argomento ($1)
+while (( ${NUM} <= $1 )) ; do
+    (( PRODOTTO=${PRODOTTO}*${NUM} ))
+    (( NUM=${NUM}+1 ))
+done
+# "Ritorna" il risultato scrivendolo sullo standard output
+echo ${PRODOTTO}
+```
+
+***3. Manipolazione di stringhe avanzata***
+
+```bash
+cut –b 3-5,10-15 nomefile.txt | \
+sed 's/\r//g' | \
+sed -z 's/\n//g' | \
+sed 's/*//g' | \
+sed 's/ //g' | \
+sed 's/\t//g'
+```
+
+***4. Script: triplette.sh*** *Stampa tutte le combinazioni di tre file presenti nella directory corrente.*
+
+```bash
+#!/bin/bash
+# Salva l'output di ls in una variabile
+NOMIFILES=`ls`
+
+# Triplo ciclo annidato
+for nome1 in ${NOMIFILES} ; do
+    for nome2 in ${NOMIFILES} ; do
+        for nome3 in ${NOMIFILES} ; do
+            # Stampa la tripletta con escape delle parentesi
+            echo \(${nome1}\;${nome2}\;${nome3}\) ;
+        done
+    done
+done
+```
+
+***5. Script: argomenti.sh*** *Concatena gli argomenti di indice pari seguiti da quelli dispari.*
+
+```bash
+#!/bin/bash
+STR=""
+NUM=0
+# Nota la sintassi (( inizializzazione; condizione; incremento ))
+# ${!NUM} è l'indirezione: se NUM è 2, accede a $2
+for (( NUM=2; ${NUM}<=$#; NUM=${NUM}+2 )) ; do
+    STR="${STR}${!NUM}";
+done
+# (Il resto dello script continuerebbe con i dispari...)
+```
+
+***6. Script: star.sh*** *Legge 4 parole alla volta e si ferma se la lettura fallisce.*
+
+```bash
+while (( 1 )) ; do
+    read prima seconda terza quarta
+    # Controlla l'exit status dell'ultimo comando (read)
+    if (( $? == 0 )) ; then
+        echo "${quarta} ${terza}"
+    else
+        break
+    fi
+done
 ```
 
