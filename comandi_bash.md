@@ -229,7 +229,7 @@ Questa sezione contiene schemi di script riutilizzabili per affrontare compiti c
 
 Questo script legge un file riga per riga. L'uso di `while read RIGA` è lo standard per evitare problemi con gli spazi bianchi e permette di processare grandi file senza caricarli completamente in memoria.
 
-```
+```bash
 #!/bin/bash
 # Uso: ./processa_file.sh <file_da_leggere>
 
@@ -269,7 +269,7 @@ exit 0
 
 Questo modello illustra come accedere agli argomenti passati allo script (`$1, $2, ...`) e come iterare su di essi, mantenendo i valori quotati per gestire argomenti contenenti spazi (`"$@"` vs `"$*"`).
 
-```
+```bash
 #!/bin/bash
 
 # Accesso al nome dello script: $0
@@ -307,7 +307,7 @@ Questi script dimostrano come manipolare gli stream di I/O (Input/Output) oltre 
 
 Questo script apre un file e scrive su di esso usando un file descriptor (FD) scelto automaticamente dal sistema.
 
-```
+```bash
 #!/bin/bash
 OUTPUT_FILE="/tmp/log_esame_$$" # Nome temporaneo sicuro (con PID)
 
@@ -342,7 +342,7 @@ rm "$OUTPUT_FILE"
 
 Questo modello usa l'operatore `|&` per convogliare sia l'output standard (`stdout`, fd 1) che l'output di errore (`stderr`, fd 2) del primo comando verso l'input standard (`stdin`, fd 0) del comando successivo (come scorciatoia per `2>&1 |`).
 
-```
+```bash
 #!/bin/bash
 echo "--- Prova di reindirizzamento STDERR e STDOUT (comando 'ls') ---"
 
@@ -369,7 +369,7 @@ Questi schemi sono essenziali per le operazioni che coinvolgono l'autenticazione
 
 La generazione di chiavi RSA è il primo passo per l'autenticazione SSH a chiave pubblica (asimmetrica).
 
-```
+```bash
 #!/bin/bash
 echo "Generazione di una nuova coppia di chiavi RSA..."
 
@@ -389,7 +389,7 @@ echo "La sicurezza dipende dalla segretezza della chiave privata."
 
 Questo è un modello avanzato per eseguire una sequenza multi-linea di comandi (un "Here Document" `<<FINESCRIPT`) sul server remoto. Utile per automatizzare operazioni complesse.
 
-```
+```bash
 #!/bin/bash
 # Sostituire con l'host e l'utente di destinazione
 HOST_SERVER="account_server@nome_host_server"
@@ -432,7 +432,7 @@ Questi schemi replicano i passaggi critici per l'aggiunta di repository di terze
 
 Questo script integra i tre passaggi fondamentali: download della chiave GPG, salvataggio nel keyring sicuro e aggiunta della sorgente con verifica esplicita della chiave (`signed-by`).
 
-```
+```bash
 #!/bin/bash
 REPO_URI="https://packages.example.com/repos/myapp"
 REPO_DIST="stable"
