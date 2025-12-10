@@ -577,3 +577,11 @@ while (( 1 )) ; do
 done
 ```
 
+***7. Script: seleziona.s*** *seleziona solo le righe che contengono il carattere A e ne conta i caratteri*.
+
+```bash
+grep A | wc -c
+
+# da eseguire però così
+cat textfile.txt | ./seleziona.sh
+```
