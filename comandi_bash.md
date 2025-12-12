@@ -227,11 +227,9 @@ Comandi per la connessione remota sicura e la gestione delle coppie di chiavi SS
 | `ssh ... -o PubkeyAuthentication=no`                                               | Parametro da usare con il comando `ssh` per **forzare l'uso dell'autenticazione tramite password**, disabilitando l'autenticazione basata su chiave pubblica/privata.            |                                                                                                        |
 
 ---
-
 ## IX. Script Base e Modelli (Boilerplate)
 
 Questa sezione contiene schemi di script riutilizzabili per affrontare compiti comuni o complessi, specialmente quelli relativi alla gestione di I/O, cicli, e interazione con processi remoti.
-
 ## A. Scripting Base e Flusso di Controllo
 
 ### 1. Modello per l'elaborazione di input da file (Ciclo `while read`)
@@ -273,7 +271,6 @@ done
 echo "Elaborazione completata."
 exit 0
 ```
-
 ### 2. Modello per l'uso di argomenti e opzioni (`case/getopts`)
 
 Questo modello illustra come accedere agli argomenti passati allo script (`$1, $2, ...`) e come iterare su di essi, mantenendo i valori quotati per gestire argomenti contenenti spazi (`"$@"` vs `"$*"`).
@@ -307,11 +304,20 @@ fi
 
 exit 0 # Exit Status 0 (Successo)
 ```
+### 3. Gestione dei nomi dei file con spazi (variabile IFS)
 
+```bash
+# salvavita per file con spazi
+OLDIFS=$IFS
+IFS=$'\n' # imposta il separatore solo a "a capo"
+for file in $(ls -1) ; do
+	echo "Elaboro: $file"
+done
+IFS=$OLDIFS # sempre ripristinare la variabile IFS
+```
 ## B. Gestione File Descriptor e Reindirizzamenti I/O
 
 Questi script dimostrano come manipolare gli stream di I/O (Input/Output) oltre ai classici `stdin` (0), `stdout` (1) e `stderr` (2).
-
 ### 1. Apertura e Chiusura di un File Descriptor per la Scrittura
 
 Questo script apre un file e scrive su di esso usando un file descriptor (FD) scelto automaticamente dal sistema.
